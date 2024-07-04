@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
@@ -31,15 +32,42 @@ public class AddDeanPage {
     private By birthDay = By.cssSelector("#birthDay");
     private By phoneNumber = By.cssSelector("#phoneNumber");
     private By ssn = By.cssSelector("#ssn");
-    private By username = By.cssSelector("#username");
-    private By deanPassword = By.cssSelector("#password");
     private By deanSubmit = By.cssSelector(".btn-primary");
     private By deanSavedPopUp = By.xpath("//*[.='Dean Saved']");
 
+
+
+    private By deanPassword = By.cssSelector("#password");
+    public void enterDeanPassword(String password) {
+        Driver.getDriver().findElement(deanPassword).sendKeys(password);
+    }
+
+//    OR
+//    @FindBy(css="#password") public
+//    WebElement deanPasswordElement;
+//    public void enterDeanPassword(String password) {
+//        deanPasswordElement.sendKeys(password);
+//    }
+
+//Driver.getDriver().findElement(deanPassword) ======= @FindBy(css="#password") public WebElement deanPasswordElement;
+
+
+
     // Reusable methods
+    private By username = By.cssSelector("#username");
     public void setUsername(String username) {
         Driver.getDriver().findElement(usernameBox).sendKeys(username);
     }
+
+//    OR
+//    @FindBy(css = "#username" )
+//    public WebElement userNameBox;
+//    public void setUsername(String username) {
+//        userNameBox.sendKeys(username);
+//    }
+
+
+
 
     public void setPassword(String password) {
         Driver.getDriver().findElement(passwordBox).sendKeys(password);
@@ -93,9 +121,7 @@ public class AddDeanPage {
         Driver.getDriver().findElement(this.username).sendKeys(username);
     }
 
-    public void enterDeanPassword(String password) {
-        Driver.getDriver().findElement(deanPassword).sendKeys(password);
-    }
+
 
     public void clickOnDeanSubmit() {
         Driver.getDriver().findElement(deanSubmit).click();
