@@ -11,16 +11,17 @@ public class Hooks {
 //    public void setUpScenarios(){
 //        System.out.println("Before Hooks");
 //    }
-    @After
-    public void afterTearDown(Scenario scenario){
-//        System.out.println("After Hooks");
-//        if a test scenario fails, then capture the screenshot, and attach it to the html report
-        if (scenario.isFailed()) {
-            final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot,"image/png","failed_screenshot");
-            Driver.closeDriver();
-        }
-    }
+//    @After
+//    public void afterTearDown(Scenario scenario){
+////        System.out.println("After Hooks");
+////        if a test scenario fails, then capture the screenshot, and attach it to the html report
+//        if (scenario.isFailed()) {
+//            final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+//            scenario.attach(screenshot,"image/png","failed_screenshot");
+//            Driver.closeDriver();
+//        }
+//
+//    }
 
 //    we can use conditional hooks using cucumber tags
 //    @After("@tea_pot or @data_tables")
